@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140531230653) do
 
   create_table "challenges", force: true do |t|
     t.string   "name"
-    t.boolean  "type"
+    t.boolean  "stadium"
     t.text     "description"
     t.date     "date"
     t.datetime "created_at"
@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 20140531230653) do
     t.datetime "updated_at"
   end
 
-  create_table "users_challenges", id: false, force: true do |t|
+  create_table "users_challenges", force: true do |t|
     t.integer "user_id"
     t.integer "challenge_id"
+    t.boolean "concluded"
+    t.date    "date"
   end
 
 end
