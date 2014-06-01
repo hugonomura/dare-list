@@ -25,7 +25,7 @@ class Note
     note = Evernote::EDAM::Type::Note.new
     note.title = @title
 
-    for challenge in challenges
+    for challenge in @challenges
       @content_body += challenge
     end
 
@@ -38,7 +38,7 @@ class Note
   end
 
   def check_todo_in_note(name)
-    for challenge in challenges
+    for challenge in @challenges
       if challenge.name == name
         challenge.sub("\"false\"", "\"true\"")
       end
@@ -51,6 +51,24 @@ class Note
       m = match.to_a
       add_challenge(m[3], m[1])
     end
+  end
+
+  def update
+    note_store = DareList::Application.note_store
+    note_filter = Evernote::EDAM::NoteStore::NoteFilter.new
+    note_filter.notebookGuid = Notebook.new.guid
+    note_filter.words = "\"Hackathon Taça\""
+    notes_metadata_result_spec = Evernote::EDAM::NoteStore::NotesMetadataResultSpec.new
+    notes = note_store.findNotesMetadata(note_filter, 0, 100, notes_metadata_result_spec)
+    note = notes.notes[0]
+    note = note_store.getNote(note.guid, true, false, false, false)
+
+    note.content = @start_body
+    for challenge in @challenges
+      note.content += challenge
+    end
+    note.content += @end_body
+    note_store.updateNote(note)
   end
 
   def get_note
