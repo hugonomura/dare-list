@@ -39,7 +39,8 @@ class Note
 
   def check_todo_in_note(name)
     for challenge in @challenges
-      if challenge.name == name
+      m = /<en-todo checked="true"\/><b>(.*)<\/b>/.match(challenge.name)
+      if m[1] == name
         challenge.sub("\"false\"", "\"true\"")
       end
     end
