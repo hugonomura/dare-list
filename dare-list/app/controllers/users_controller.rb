@@ -24,20 +24,30 @@ class UsersController < ApplicationController
         op = true
     end
     date = Date.today
-    par = [twitter_token: twitter,date: date]
+    par = {twitter_token: twitter,date: date}
+    puts par
     @user = User.create(par)
 
     count = 0
      n = Challenge.count
+
      while count < 3
         @challenge = Challenge.find(n)
+
+        puts @challenge.name
+
         unless @challenge.nil? 
-            @user << challenge
+            @user.challenges << @challenge
             count = count + 1
         else
             count = 10
         end
     end
+
+    note = Note.new
+    #interar challenges
+    note.add_challenge(@challenge,"false")
+    note.save_new_todo
 
     render root
 
