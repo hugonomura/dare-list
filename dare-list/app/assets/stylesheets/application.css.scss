@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+
+
+ *= require examples
+
+ *= require jqueryfullPage
+
+ *= require_tree .
+ *= require_self
+ */
+
+  /* Style for our header texts 
+  * --------------------------------------- */
+  h1{
+    font-size: 5em; 
+    font-family: arial,helvetica;
+    color: #fff;
+    margin:0;
+    padding:0;
+  }
+
+  h2{
+    font-size: 5em; 
+    font-family: arial,helvetica;
+    color: #000;
+    margin:0;
+    padding:0;
+  }
+
+
+  /* Header 
+  * --------------------------------------- */
+  #header{
+    position:fixed;
+    height: 46px;
+    display:block;
+    width: 100%;
+    background: #333;
+    z-index:9;
+    text-align:center;
+    color: #f2f2f2;
+    padding: 20px 0 0 0;
+  }
+  
+  #header{
+    top:0px;
+  }
+
+  
+  /* Centered texts in each section 
+  * --------------------------------------- */
+  .section{
+    text-align:center;
+    vertical-align: center;
+  }
+  
+  
+  /* Backgrounds will cover all the section
+  * --------------------------------------- */
+  #section0,
+  #section1,
+  #section2,
+  #section3{
+    background-size: 100%;
+  }
+  
+  /* Defining each sectino background and styles 
+  * --------------------------------------- */
+  #section0{
+    background-image: image-url('bg.jpg');
+    width:100%;
+    padding: 0% 0 0 0;
+    
+  }
+  #section0 h1{
+    color: #000;
+  }
+  #section2{
+    background-image:  image-url('bg.jpg');
+    padding: 6% 0 0 0;
+  }
+  #section3{
+    background-image:  image-url('bg.jpg');
+    padding: 6% 0 0 0;
+  }
+  #section3 h1{
+    color: #000;
+  }
+
+ 
+  /*Adding background for the slides
+  * --------------------------------------- */
+  #slide1{
+    background-image: image-url('bg2.jpg');
+    padding: 6% 0 0 0;
+  }
+  #slide2{
+    background-image: image-url('bg5.jpg');
+    padding: 6% 0 0 0;
+  }
+  
+  
+  /* Bottom menu
+  * --------------------------------------- */
+  #infoMenu li a {
+    color: #fff;
+  }
+
+

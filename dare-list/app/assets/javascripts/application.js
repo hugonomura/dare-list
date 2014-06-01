@@ -11,18 +11,17 @@
 // about supported directives.
 //
 
+
 //= require jquery
 //= require jquery.slimscroll
+
 //= require jquery_ujs
-//= require custom-radio
+
 //= require jqueryfullPage
+//= require custom-radio
+
 //= require examples
+
 //= require_tree .
+  
 
-
-    $(document).ready(function() {
-      $('#fullpage').fullpage({
-        verticalCentered: true,
-        resize: true,
-      });
-    });

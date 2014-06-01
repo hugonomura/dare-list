@@ -59,21 +59,21 @@ html, body {
 }
 
 .outrasopcoes label {
-  background-image: url("examples/imgs/estadio_unchecked.jpg");
+  background-image: image-url('estadio_unchecked.jpg');
   background-size: 100%;
 }
 
 .nosestadios label {
-  background-image: url("examples/imgs/outros_unchecked.jpg");
+  background-image: image-url('outros_unchecked.jpg');
   background-size: 100%;
 }
 
 .outrasopcoes input:checked + label {
-    background-image: url("examples/imgs/estadio_checked.jpg");
+    background-image: image-url("estadio_checked.jpg");
 }
 
 .nosestadios input:checked + label{
-    background-image: url("examples/imgs/outros_checked.jpg");
+    background-image: image-url("outros_checked.jpg");
 }
 
 .twitter-list {
@@ -92,7 +92,7 @@ html, body {
   position: relative;
   width: 80px;
   display: inline;
-  background-image: url("examples/imgs/twitter_icon.png");
+  background-image: image-url("twitter_icon.png");
     background-size: 100% 100%;
 
 }
@@ -101,7 +101,7 @@ html, body {
 
     width: 80px;
     height: 66px;
-    background-image: url("examples/imgs/twitter_icon.png");
+    background-image: image-url("twitter_icon.png");
     background-size: 100% 100%;
 
 }
@@ -118,7 +118,7 @@ html, body {
 }
 
 .mybutton {
-    background-image: url("examples/imgs/enviar.jpg");
+    background-image: image-url("enviar.jpg");
     background-color: transparent;
     border: none;
     width: 200px;
@@ -128,7 +128,7 @@ html, body {
 }
 
 .mybutton.pressed {
-    background-image: url("examples/imgs/enviar.jpg");
+    background-image: image-url("enviar.jpg");
     background-size: 100% 100%;
     border: none;
 }
