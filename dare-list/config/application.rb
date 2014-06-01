@@ -8,13 +8,14 @@ Bundler.require(*Rails.groups)
 
 module DareList
   class Application < Rails::Application
-    config = File.join(Rails.root, 'config', 'evernote.yml')
-    evernote_config = YAML.load_file(config)[Rails.env]
 
-    client ||= EvernoteOAuth::Client.new(token: evernote_config["developer_token"])
 
-    note_store ||= client.note_store
-
+    def note_store
+        config = File.join(Rails.root, 'config', 'evernote.yml')
+        evernote_config = YAML.load_file(config)[Rails.env]
+        @client ||= EvernoteOAuth::Client.new(token: evernote_config["developer_token"])
+        note_store ||= @client.note_store
+    end
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
