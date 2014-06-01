@@ -1,6 +1,8 @@
 require "evernote_oauth"
 
 class Notebook
+  attr_reader :guid
+
   def initialize
     @name = "Dare List"
     unless exists?
