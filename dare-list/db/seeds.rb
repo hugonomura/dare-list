@@ -7,11 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Challenge.create(name: 'feijoada', stadium: false  , description: "blah blah", date: Date.tomorrow)
-Challenge.create(name: 'caipirinha', stadium: false, description: "caipi caipi blah", date: Date.tomorrow)
-Challenge.create(name: 'por do sol', stadium: false , description: "sol sol blah", date: Date.tomorrow)
-Challenge.create(name: 'pastel de flango', stadium: false, description: "uhhhh flango", date: Date.tomorrow)
-Challenge.create(name: 'surfar no ocenao', stadium: false, description: "surf surf", date: Date.tomorrow)
+
+Challenge.create(name: 'Darelist #', stadium: false  , description: "Coma uma fruta típica da região", date: Date.tomorrow)
+Challenge.create(name: 'Darelist #', stadium: false, description: "Tire foto com as 5 pessoas mais próximas de você", date: Date.tomorrow)
+Challenge.create(name: 'Darelist #', stadium: false , description: "Visite um ponto turístico", date: Date.tomorrow)
 
 
 
