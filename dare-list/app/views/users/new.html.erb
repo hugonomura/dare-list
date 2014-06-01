@@ -1,0 +1,174 @@
+
+<style>
+  
+  /* Style for our header texts 
+  * --------------------------------------- */
+  h1{
+    font-size: 5em; 
+    font-family: arial,helvetica;
+    color: #fff;
+    margin:0;
+    padding:0;
+  }
+
+  h2{
+    font-size: 5em; 
+    font-family: arial,helvetica;
+    color: #000;
+    margin:0;
+    padding:0;
+  }
+
+
+  /* Header 
+  * --------------------------------------- */
+  #header{
+    position:fixed;
+    height: 46px;
+    display:block;
+    width: 100%;
+    background: #333;
+    z-index:9;
+    text-align:center;
+    color: #f2f2f2;
+    padding: 20px 0 0 0;
+  }
+  
+  #header{
+    top:0px;
+  }
+
+  
+  /* Centered texts in each section 
+  * --------------------------------------- */
+  .section{
+    text-align:center;
+    vertical-align: center;
+  }
+  
+  
+  /* Backgrounds will cover all the section
+  * --------------------------------------- */
+  #section0,
+  #section1,
+  #section2,
+  #section3{
+    background-size: 100%;
+  }
+  
+  /* Defining each sectino background and styles 
+  * --------------------------------------- */
+  #section0{
+    background-image: image-url("bg.jpg");
+    width:100%;
+    padding: 0% 0 0 0;
+    
+  }
+  #section0 h1{
+    color: #000;
+  }
+  #section2{
+    background-image:  image-url("bg.jpg");
+    padding: 6% 0 0 0;
+  }
+  #section3{
+    background-image:  image-url("bg.jpg");
+    padding: 6% 0 0 0;
+  }
+  #section3 h1{
+    color: #000;
+  }
+
+ 
+  /*Adding background for the slides
+  * --------------------------------------- */
+  #slide1{
+    background-image: image-url("bg2.jpg");
+    padding: 6% 0 0 0;
+  }
+  #slide2{
+    background-image:  image-url("bg5.jpg");
+    padding: 6% 0 0 0;
+  }
+  
+  
+  /* Bottom menu
+  * --------------------------------------- */
+  #infoMenu li a {
+    color: #fff;
+  }
+  </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $('#fullpage').fullpage({
+            verticalCentered: true,
+            resize: true,
+          });
+        });
+
+      </script>
+
+    <script>
+    $(document).ready(function(){
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_flat',
+        radioClass: 'iradio_flat'
+      });
+    });
+    </script>
+
+
+<div id="header">
+<input id="clickMe" type="button" value="clickme" onclick="$.fn.fullpage.moveTo(3, 0);" /></div>
+
+
+<div id="fullpage">
+  <div class="section " id="section0">
+    <div class="layer" >
+      <%= image_tag "logo_mascote.png", style:'width:50%;'%>
+      <h1>Slide Backgrounds</h1>
+    </div>
+    
+  </div>
+  <div class="section" id="section1">
+      <div class="slide" id="slide1"><h1>Slide Backgrounds</h1></div>
+      <div class="slide" id="slide2"><h1>Totally customizable</h1></div>
+  </div>
+  <div class="section" id="section2">
+    <div class="layer" >
+      <%= image_tag "pergunta.jpg", style:'width:50%;'%>
+
+    </div>
+    <center>
+      <div>
+        <ul class="choose-methods">
+          <li class="choose-method outrasopcoes">
+            <input name="chooose_methods" type="radio" id="outrasopcoes" checked>
+            <label for="outrasopcoes"></label>
+          </li>
+
+          <li class="choose-method nosestadios">
+            <input name="chooose_methods" type="radio" id="nosestadios" >
+            <label for="nosestadios"></label>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul class="twitter-list">
+          <li class="twitter-iconbox">
+          </li>
+          <li class="twitter-block">
+            <input type="text" class="twitterinput"></input>
+          </li>
+        </ul>
+        
+      </div>  
+      <div>
+        <input type="submit" class="mybutton" value=""
+          onmousedown="this.className+=' pressed'"
+            onmouseup="this.className=this.className.replace(' pressed', '')">
+          </input>
+      </div>
+    </center>
+  </div>
+</div>
