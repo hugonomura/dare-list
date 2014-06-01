@@ -18,10 +18,10 @@ class UsersController < ApplicationController
 
   def create
     twitter = params[:twitter_token]
-    unless params[:outraop].nil? == true ||  params[:outraop] == 'outrasopcoes' 
-        op = false
-    else
+    if  params[:op] == 'estadio' 
         op = true
+    else
+        op = false
     end
     date = Date.today
     par = {twitter_token: twitter,date: date}
