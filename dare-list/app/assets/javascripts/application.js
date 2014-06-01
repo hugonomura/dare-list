@@ -10,7 +10,19 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
+//= require jquery.slimscroll
 //= require jquery_ujs
-//= require turbolinks
+//= require custom-radio
+//= require jqueryfullPage
+//= require examples
 //= require_tree .
+
+
+    $(document).ready(function() {
+      $('#fullpage').fullpage({
+        verticalCentered: true,
+        resize: true,
+      });
+    });

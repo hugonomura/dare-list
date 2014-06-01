@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   post 'tweets' => 'tweets#new'
 
+  resources :users
+
+  root 'users#new'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
