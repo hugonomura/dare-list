@@ -79,7 +79,7 @@ class Note
     note_filter.words = "\"Hackathon Taça\""
     notes_metadata_result_spec = Evernote::EDAM::NoteStore::NotesMetadataResultSpec.new
     notes = note_store.findNotesMetadata(note_filter, 0, 100, notes_metadata_result_spec)
-    note = notes.notes[0]
+    note = notes.notes.last
     note = note_store.getNote(note.guid, true, false, false, false)
     read_challenges(note.content)
   end
