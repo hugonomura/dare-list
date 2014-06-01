@@ -49,7 +49,11 @@ class UsersController < ApplicationController
     note.add_challenge(@challenge,"false")
     note.save_new_todo
 
-    render root
+    render :show
+
+  end
+
+  def show
 
   end
 
