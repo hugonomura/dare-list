@@ -18,7 +18,7 @@ class Note
 
   # passar 'true' ou 'false' como checked
   def add_challenge(challenge, checked)
-    @challenges << '<en-todo checked="' + checked + '"/><b>' + challenge.name + '</b> - ' + challenge.description + '<br />' 
+    @challenges << '<en-todo checked="' + checked + '"/>' + challenge.name + '' + challenge.description + '<br />' 
   end
 
   def save_new_todo
@@ -39,18 +39,22 @@ class Note
 
   def check_todo_in_note(name)
     for challenge in @challenges
-      m = /<en-todo checked="true"\/><b>(.*)<\/b>/.match(challenge.name)
-      if m[1] == name
+      # TODO: mudar essa regex
+      m = /<en-todo checked="false"\/><b>(.*)<\/b>/.match(challenge)
+      if m and m[1] == name
         challenge.sub("\"false\"", "\"true\"")
       end
     end
   end
 
   def read_challenges(content)
-    matchs = /(<en-todo checked=\"(false|true)\"\/>)(.*)(<br \/>)/.match(content)
+    matchs = content.scan(/(<en-todo checked=\"(false|true)\"\/>)(.*)(<br \/>)/)
     for match in matchs
       m = match.to_a
-      add_challenge(m[3], m[1])
+      c = Challenge.new
+      c.name = m[2]
+      c.description = ''
+      add_challenge(c, m[1])
     end
   end
 
@@ -58,7 +62,7 @@ class Note
     note_store = DareList::Application.note_store
     note_filter = Evernote::EDAM::NoteStore::NoteFilter.new
     note_filter.notebookGuid = Notebook.new.guid
-    note_filter.words = "\"Hackathon Taça\""
+    note_filter.words = '"Hackathon Taça"'
     notes_metadata_result_spec = Evernote::EDAM::NoteStore::NotesMetadataResultSpec.new
     notes = note_store.findNotesMetadata(note_filter, 0, 100, notes_metadata_result_spec)
     note = notes.notes[0]
@@ -76,7 +80,7 @@ class Note
     note_store = DareList::Application.note_store
     note_filter = Evernote::EDAM::NoteStore::NoteFilter.new
     note_filter.notebookGuid = Notebook.new.guid
-    note_filter.words = "\"Hackathon Taça\""
+    note_filter.words = '"Hackathon Taça"'
     notes_metadata_result_spec = Evernote::EDAM::NoteStore::NotesMetadataResultSpec.new
     notes = note_store.findNotesMetadata(note_filter, 0, 100, notes_metadata_result_spec)
     note = notes.notes.last
